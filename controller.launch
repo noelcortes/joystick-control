@@ -1,0 +1,19 @@
+<launch>
+
+ <!-- joy node -->
+  <node respawn="true" pkg="joy"
+        type="joy_node" name="joystick" >
+    <param name="dev" type="string" value="/dev/input/js1" />
+    <param name="deadzone" value="0.12" />
+  </node>
+  
+   <!-- Axes -->
+  <param name="axis_fwd_vel_linear_" value="5" type="int"/>
+  <param name="axis_bkw_vel_linear_" value="2" type="int"/>
+  <param name="axis_angulo" value="0" type="int"/>
+  <param name="scale_vel_lineal" value="400" type="double"/>
+  <param name="scale_angulo" value="180" type="double"/>
+  
+  <node pkg="car_control" type="joy_teleop" name="teleop"/>
+
+</launch>
